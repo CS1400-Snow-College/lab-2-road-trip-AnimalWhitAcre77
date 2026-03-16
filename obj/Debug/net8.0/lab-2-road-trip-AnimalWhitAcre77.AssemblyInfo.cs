@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("lab-2-road-trip-AnimalWhitAcre77")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a0ccec6cbbc602b745d970ef5bf0f09b78ed660b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d49f595dc6692c758374210267fab9b6938f2764")]
 [assembly: System.Reflection.AssemblyProductAttribute("lab-2-road-trip-AnimalWhitAcre77")]
 [assembly: System.Reflection.AssemblyTitleAttribute("lab-2-road-trip-AnimalWhitAcre77")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

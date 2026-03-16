@@ -20,7 +20,7 @@ while (Double.TryParse(Console.ReadLine(), out distance) == false) // takes user
 }
 
 double speed;
-Console.Write($"What average spped (MPH) will {driver} be travelling? ");
+Console.Write($"What average speed (MPH) will {driver} be travelling? ");
 while (Double.TryParse(Console.ReadLine(), out speed) == false)
 {
     Console.WriteLine("Invalid response, please try again.");
@@ -73,30 +73,41 @@ Console.WriteLine($"{destination} {driver} {distance} {speed} {milesPerGallon} {
 
 // Calculate all the needed values
 double duration = distance / speed;
+int durationHours = (int)duration;
+int durationMinutes = (int)(duration % 1 * 60);
 double fuelNeeded = distance / milesPerGallon;
 double range = milesPerGallon * tankCapacity;
 int fuelStops = (int)(distance / range);
-double fuelCost = fuelNeeded
+double fuelCost = fuelNeeded * fuelPrice;
 
 // Return the final report to the user
-Console.WriteLine($"{"Driver:",-10}{driver,-10}");
-Console.WriteLine($"{"Currency:",-10}{typeCurrency,-10}");
+Console.WriteLine($"{"Driver:",-30}{driver,-30}");
+Console.WriteLine($"{"Currency:",-30}{typeCurrency,-30}");
 
 Console.WriteLine("");
 
-Console.WriteLine($"{"Distance (miles):",-10}{distance,-10}");
-Console.WriteLine($"{"Average Speed (mph):",-10}{speed,-10}");
-Console.WriteLine($"{"Time Driving:",-10}{duration,-10}");
+Console.WriteLine($"{"Distance (miles):",-30}{distance,-30}");
+Console.WriteLine($"{"Average Speed (mph):",-30}{speed,-30}");
+Console.WriteLine($"{"Time Driving:",-30}{$"{durationHours}H {durationMinutes}M",-30}");
 
 Console.WriteLine("");
 
-Console.WriteLine($"{"Vehicle Miles per Gallon:",-10}{milesPerGallon,-10}");
-Console.WriteLine($"{"Fuel Needed (round trip):",-10}{fuelNeeded,-10}");
-Console.WriteLine($"{"Range per Tank:",-10}{range,-10}");
-Console.WriteLine($"{"Estimated Fuel Stops:",-10}{fuelStops,-10}");
+Console.WriteLine($"{"Vehicle Miles per Gallon:",-30}{milesPerGallon,-30}");
+Console.WriteLine($"{"Fuel Needed (round trip):",-30}{$"{fuelNeeded:0.00} gallons",-30}");
+Console.WriteLine($"{"Range per Tank:",-30}{range,-30:0.00}");
+Console.WriteLine($"{"Estimated Fuel Stops:",-30}{fuelStops,-30}");
 
 Console.WriteLine("");
 
-Console.WriteLine($"{"Gas Price per gallon:",-10}{$"{typeCurrency}{fuelPrice}",-10}");
-Console.WriteLine($"{"Time Driving:",-10}{duration,-10}");
-Console.WriteLine($"{"Fuel Cost:",-10}{duration,-10}");
+Console.WriteLine($"{"Gas Price per gallon:",-30}{$"{typeCurrency}{fuelPrice:0.00}",-30}");
+Console.WriteLine($"{"Time Driving:",-30}{$"{durationHours}H {durationMinutes}M",-30}");
+Console.WriteLine($"{"Fuel Cost:",-30}{$"{typeCurrency}{fuelCost:0.00}",-30}");
+Console.WriteLine($"{"Riders (split):",-30}{numPassengers + 1,-30}");
+Console.WriteLine($"{"Cost per person:",-30}{$"{typeCurrency}{fuelCost / numPassengers + 1:0.00} (+ Snacks)",-30}");
+Console.WriteLine($"{"Cost per mile:",-30}{$"{typeCurrency}{fuelCost / distance:0.00}",-30}");
+Console.WriteLine($"{"Cost per driving hour:",-30}{$"{typeCurrency}{fuelCost:0.00}",-30}");
+
+Console.WriteLine("");
+
+Console.WriteLine($"{"Average song length (min):",-30}3.5");
+Console.WriteLine($"{"Number of songs needed:",-30}{(int)(duration * 60 / 3.5),-30}");
