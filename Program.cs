@@ -4,6 +4,7 @@ Console.Clear();
 
 Console.WriteLine("We are going to map out a road trip for Fall Break.\nI'm going to ask you some specific questions about the trip, and then I'll callculate a trip summary from that information.");
 
+// Query the user on the needed data, validating important data types
 Console.Write("Where will you be driving? ");
 string destination = Console.ReadLine();
 
@@ -69,3 +70,33 @@ while (Double.TryParse(Console.ReadLine(), out fuelPrice) == false)
 
 Console.WriteLine("Recieved:");
 Console.WriteLine($"{destination} {driver} {distance} {speed} {milesPerGallon} {tankCapacity} {numPassengers} {typeCurrency} {fuelPrice}");
+
+// Calculate all the needed values
+double duration = distance / speed;
+double fuelNeeded = distance / milesPerGallon;
+double range = milesPerGallon * tankCapacity;
+int fuelStops = (int)(distance / range);
+double fuelCost = fuelNeeded
+
+// Return the final report to the user
+Console.WriteLine($"{"Driver:",-10}{driver,-10}");
+Console.WriteLine($"{"Currency:",-10}{typeCurrency,-10}");
+
+Console.WriteLine("");
+
+Console.WriteLine($"{"Distance (miles):",-10}{distance,-10}");
+Console.WriteLine($"{"Average Speed (mph):",-10}{speed,-10}");
+Console.WriteLine($"{"Time Driving:",-10}{duration,-10}");
+
+Console.WriteLine("");
+
+Console.WriteLine($"{"Vehicle Miles per Gallon:",-10}{milesPerGallon,-10}");
+Console.WriteLine($"{"Fuel Needed (round trip):",-10}{fuelNeeded,-10}");
+Console.WriteLine($"{"Range per Tank:",-10}{range,-10}");
+Console.WriteLine($"{"Estimated Fuel Stops:",-10}{fuelStops,-10}");
+
+Console.WriteLine("");
+
+Console.WriteLine($"{"Gas Price per gallon:",-10}{$"{typeCurrency}{fuelPrice}",-10}");
+Console.WriteLine($"{"Time Driving:",-10}{duration,-10}");
+Console.WriteLine($"{"Fuel Cost:",-10}{duration,-10}");
